@@ -1,0 +1,28 @@
+<h2>All Games</h2>
+
+<div class="form-row">
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label col-form-label-sm" for="search-text">Search</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control form-control-sm" id="search-text" [(ngModel)]="searchText" placeholder="Search Here">
+    </div>
+  </div>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th (click)="sort('platform')">Platform &nbsp; <i class="sort-by-desc"></i>
+      <i class="sort-by-asc"></i></th>
+    <th>Score</th>
+    <th>Genre</th>
+  </tr>
+  <tr *ngFor="let g of games | filter: searchText | orderBy: key: reverse ">
+  <td>{{g.title}}</td>
+  <td>{{g.platform}}</td>
+  <td>{{g.score}}</td>
+  <td>{{g.genre}}</td>
+  </tr>
+</table>
+</div>
